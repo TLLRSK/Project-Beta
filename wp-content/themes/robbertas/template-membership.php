@@ -12,13 +12,13 @@ $color = get_post_meta($postid, 'color', true);
         <div class="subscription__card">
             <div class="section__header subscription__header column color-border--<?php echo $color; ?>">
                 <div class="section__title subscription__header-title">
-                    <h2>JOIN OUR GOLDEN LIST</h2>
+                    <h2>JOIN US</h2>
                 </div>
 
                 <div class="subscription__header-lineart">
-                    <div class="lineart--ellipse social-club__ellipse--left color-border--<?php echo $color; ?>"></div>
-                    <div class="lineart--ellipse social-club__ellipse--center color-border--<?php echo $color; ?>"></div>
-                    <div class="lineart--ellipse social-club__ellipse--right color-border--<?php echo $color; ?>"></div>
+                    <div class="lineart--ellipse membership__ellipse--left color-border--<?php echo $color; ?>"></div>
+                    <div class="lineart--ellipse membership__ellipse--center color-border--<?php echo $color; ?>"></div>
+                    <div class="lineart--ellipse membership__ellipse--right color-border--<?php echo $color; ?>"></div>
                 </div>
 
             </div>

@@ -15,7 +15,6 @@
         if ( !is_admin() )
         {
             wp_enqueue_script ( 'js-main', get_stylesheet_directory_uri() . '/js/main.js', '', '', true );
-
             wp_enqueue_style ( 'css-main', get_stylesheet_uri(), '', filemtime ( get_template_directory() . '/style.css' ) );        
         }
     }
@@ -42,8 +41,6 @@
 
     // add_post_type_support ( 'page', 'excerpt' );
 
-
-
 //  REGISTRO DE MENÚS
 
     register_nav_menu ( 'header-menu-center', 'Nav links' );
@@ -63,7 +60,6 @@
 
     add_filter('nav_menu_link_attributes', 'add_additional_class_on_a', 1, 3);
 
-
 // CUSTOMIZING SINGLE PRODUCT PAGE
     remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
     remove_action( 'woocommerce_after_single_product_summary' , 'woocommerce_output_product_data_tabs', 10 );
@@ -78,5 +74,18 @@
     }
     add_action('get_header', 'remove_admin_login_header');
 
+    /** CHANGE NUMBER OF RELATED PRODUCTS OUTPUT */ 
+    function woo_related_products_limit() {
+        global $product;
+        $args['posts_per_page'] = 6;
+        return $args;
+    }
+    add_filter( 'woocommerce_output_related_products_args', 'jk_related_products_args', 20 );
+        function jk_related_products_args( $args ) {
+        $args['posts_per_page'] = 5;
+        $args['columns'] = 5;
+        return $args;
+    }
 
+    
 ?>

@@ -9,15 +9,8 @@ $postid = $wp_query->post->ID;
         <div class="header__title">
             <h1><?php the_title(); ?></h1>
         </div>
-        <!-- <div class="shop__tools row">
-            <div class="shop__sort">
-                <p class="h--m weight--300">Sort</p>
-            </div>
-            <div class="shop__filter">
-                <p class="h--m weight--300">Filter</p>
-            </div>
-        </div> -->
     </header>
+    
     <main>
         <section class="shop__collection color--<?php echo get_post_meta($postid, 'color', true); ?>">
 
@@ -32,7 +25,7 @@ $postid = $wp_query->post->ID;
             ?>
                         <div class="shop__product column color-border--<?php echo get_post_meta($postid, 'color', true); ?>">
                             <div class="img img--product-large color-border--<?php echo get_post_meta($postid, 'color', true); ?>">
-                                <a class="link--img" href="<?php echo $productUrl?>" target="_blank">  
+                                <a class="link--img img--zoom-in" href="<?php echo $productUrl?>" target="_blank">  
                                     <?php echo wp_get_attachment_image( get_sub_field( 'product_image' ), '', '', '' ); ?>
                                 </a>
                             </div>

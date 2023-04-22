@@ -77,7 +77,7 @@ $postid = $wp_query->post->ID;
                         <div class="grid-item">
 
                             <div class="img color-border--blue">
-                                <a class="link--img" href="<?php echo $productUrl?>" target="_blank">  
+                                <a class="link--img img--zoom-in" href="<?php echo $productUrl?>" target="_blank">  
                                     <?php echo wp_get_attachment_image ( get_sub_field ( 'product_image' ), '', '', '' ); ?>
                                 </a>
                             </div>
@@ -122,7 +122,6 @@ $postid = $wp_query->post->ID;
                             <div class="lineart--ellipse about__ellipse--right color-border--red"></div>
                         </div>
                         <div class="about__header-title">
-                            <h2 class="h--l"><?php echo $title['subtitle']; ?></h2>
                             <h2 class="h--xxl"><?php echo $title['title']; ?></h2>
                         </div>
                         
@@ -194,13 +193,13 @@ $postid = $wp_query->post->ID;
             <?php $title = get_sub_field( 'subscription_title' ); ?>
             <?php $image = get_sub_field ( 'subscription_image' ); ?>
 
-            <section class="social-club color--gold">
-                <div class="social-club__card column">
-                    <div class="header--section social-club__header column color-border--gold">
-                        <div class="social-club__header-lineart">
-                            <div class="lineart--ellipse social-club__ellipse--left color-border--gold"></div>
-                            <div class="lineart--ellipse social-club__ellipse--center color-border--gold"></div>
-                            <div class="lineart--ellipse social-club__ellipse--right color-border--gold"></div>
+            <section class="membership color--gold">
+                <div class="membership__card column">
+                    <div class="header--section membership__header column color-border--gold">
+                        <div class="membership__header-lineart">
+                            <div class="lineart--ellipse membership__ellipse--left color-border--gold"></div>
+                            <div class="lineart--ellipse membership__ellipse--center color-border--gold"></div>
+                            <div class="lineart--ellipse membership__ellipse--right color-border--gold"></div>
                         </div>
 
                         <div class="section__title">
@@ -208,34 +207,34 @@ $postid = $wp_query->post->ID;
                         </div>
                     </div>
 
-                    <div class="social-club__card-content">
-                        <div class="social-club__info column">
-                            <h2 class="h--m font--mulish social-club__info-item">DO YOU WANT ACCESS TO</h2>
+                    <div class="membership__card-content">
+                        <div class="membership__info column">
+                            <h2 class="h--m font--mulish membership__info-item">DO YOU WANT ACCESS TO</h2>
                 
-                            <div class="social-club__info-list row">
+                            <div class="membership__info-list row">
                                 <?php while ( have_rows ('subscription_description')) : the_row(); ?>
 
                                     <?php $benefit = get_sub_field( 'description_benefit' ); ?>
                                     
-                                    <h4 class="social-club__info-list-item">
+                                    <h4 class="h--s membership__info-list-item">
                                         <?php echo $benefit; ?>
                                     </h4>
 
                                 <?php endwhile; ?>
                             </div>
         
-                            <div class="social-club__footer">
+                            <div class="membership__footer">
                                 <h4 class="weight--300">?</h4>
                             </div>
                         </div>
         
-                        <div class="social-club__img img--large color-border--gold" style="background-image: url('<?php echo $image; ?>')">
+                        <div class="membership__img img--large color-border--gold" style="background-image: url('<?php echo $image; ?>')">
                             <?php 
                                 while ( have_rows ('subscription_button')) : the_row();
                                 $text = get_sub_field ( 'button_text' );
                             ?>
                             
-                                <a href="<?php echo home_url ( 'membership' ); ?>" class="btn btn--link btn--gold social-club__button-on-img btn--action color--gold"><?php echo $text; ?></a>
+                                <a href="<?php echo home_url ( 'membership' ); ?>" class="btn btn--link btn--gold membership__button-on-img btn--action color--gold"><?php echo $text; ?></a>
                             <?php endwhile; ?>
                         </div>
                     </div>

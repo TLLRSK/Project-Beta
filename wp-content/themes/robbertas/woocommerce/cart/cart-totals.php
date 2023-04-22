@@ -95,7 +95,7 @@ defined( 'ABSPATH' ) || exit;
 		<?php do_action( 'woocommerce_cart_totals_before_order_total' ); ?>
 
 		<tr class="order-total">
-			<th class="font--mulish h--l"><?php esc_html_e( 'Total', 'woocommerce' ); ?></th>
+			<th class="font--mulish h--l"><?php esc_html_e( 'Total:', 'woocommerce' ); ?></th>
 			<td class="font--mulish h--l color--red" data-title="<?php esc_attr_e( 'Total', 'woocommerce' ); ?>"><?php wc_cart_totals_order_total_html(); ?></td>
 		</tr>
 

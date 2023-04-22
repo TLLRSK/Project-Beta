@@ -25,10 +25,10 @@ do_action( 'woocommerce_before_cart' ); ?>
 	<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
 		<thead>
 			<tr>
-				<th class="product-remove p--m font--mulish"><span class="screen-reader-text"><?php esc_html_e( 'Remove item', 'woocommerce' ); ?></span></th>
-				<th class="product-thumbnail p--m font--mulish"><span class="screen-reader-text"><?php esc_html_e( 'Thumbnail image', 'woocommerce' ); ?></span></th>
-				<th class="product-name p--m font--mulish"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
-				<th class="product-price p--m font--mulish"><?php esc_html_e( 'Price', 'woocommerce' ); ?></th>
+				<!-- <th class="product-remove p--m font--mulish"><span class="screen-reader-text"><?php esc_html_e( 'Remove item', 'woocommerce' ); ?></span></th>
+				<th class="product-thumbnail p--m font--mulish"><span class="screen-reader-text"><?php esc_html_e( 'Thumbnail image', 'woocommerce' ); ?></span></th> -->
+				<!-- <th class="product-name p--m font--mulish"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
+				<th class="product-price p--m font--mulish"><?php esc_html_e( 'Price', 'woocommerce' ); ?></th> -->
 				<!-- <th class="product-quantity p--m font--mulish"><?php esc_html_e( 'Quantity', 'woocommerce' ); ?></th> -->
 				<!-- <th class="product-subtotal p--m font--mulish"><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></th> -->
 			</tr>
@@ -44,9 +44,9 @@ do_action( 'woocommerce_before_cart' ); ?>
 				if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 					$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
 					?>
-					<tr class="woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
+					<tr class="woocommerce-cart-form__cart-item gap--m <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
 
-						<td class="product-remove h--m">
+						<!-- <td class="product-remove h--m">
 							<?php
 								echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 									'woocommerce_cart_item_remove_link',
@@ -60,9 +60,10 @@ do_action( 'woocommerce_before_cart' ); ?>
 									$cart_item_key
 								);
 							?>
-						</td>
+						</td> -->
 
 						<td class="product-thumbnail">
+							
 						<?php
 						$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 
@@ -73,14 +74,29 @@ do_action( 'woocommerce_before_cart' ); ?>
 						}
 						?>
 						</td>
-
-						<td class="product-name h--m" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>">
+						
+						<td class="product-info h--m" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>">
+						
 						<?php
 						if ( ! $product_permalink ) {
 							echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;' );
 						} else {
 							echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a class="link link--black h--m" href="%s">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key ) );
 						}
+
+					
+						echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
+						echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							'woocommerce_cart_item_remove_link',
+							sprintf(
+								'<a href="%s" class="remove">Remove</a>',
+								esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+								esc_html__( 'Remove this item', 'woocommerce' ),
+								esc_attr( $product_id ),
+								esc_attr( $_product->get_sku() )
+							),
+							$cart_item_key
+						);
 
 						do_action( 'woocommerce_after_cart_item_name', $cart_item, $cart_item_key );
 
@@ -93,12 +109,13 @@ do_action( 'woocommerce_before_cart' ); ?>
 						}
 						?>
 						</td>
-
-						<td class="product-price h--m" data-title="<?php esc_attr_e( 'Price', 'woocommerce' ); ?>">
+						
+						<!-- <td class="product-price color--red h--m" data-title="<?php esc_attr_e( 'Price', 'woocommerce' ); ?>">
 							<?php
 								echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
 							?>
-						</td>
+							
+						</td> -->
 
 						<!--
 						<td class="product-quantity h--m" data-title="<?php esc_attr_e( 'Quantity', 'woocommerce' ); ?>">

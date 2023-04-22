@@ -40,11 +40,14 @@ if ( is_page ( 'home' ) ) {
             </div>
 
             <div class="footer__dropdowns column">
-                <div class="footer__dropdown column color-border--<?php echo $color; ?>">
+                <div class="footer__dropdown column color-border--<?php if (is_404() ) { $color = 'white'; } echo $color; ?>">
                     <input type="checkbox" class="footer__dropdown-toggler" id="footer__dropdown-toggler--help">
                     <label for="footer__dropdown-toggler--help" class="footer__dropdown-title js-footer__dropdown-title row justify--between">
                         <p class="p--m">Help</p>
-                        <span class="h--m">+</span>
+                        <div class="dropdown__toggler">
+                            <span class="dropdown__line dropdown__line--horizontal color-bg--<?php if (is_404() ) { $color = 'white'; } echo $color; ?>"></span>
+                            <span class="dropdown__line dropdown__line--vertical color-bg--<?php if (is_404() ) { $color = 'white'; } echo $color; ?>"></span>
+                        </div>
                     </label>
                     <div class="footer__dropdown-content js-footer__dropdown-content">
                         <p class="p--s">Did you have any problem with our products, payment or shipping? Write us. Do you feel lost or purposeless? Write us. Do you think we should know about you? Write us.</p>
@@ -55,7 +58,11 @@ if ( is_page ( 'home' ) ) {
                     <input type="checkbox" class="footer__dropdown-toggler" id="footer__dropdown-toggler--careers">
                     <label for="footer__dropdown-toggler--careers" class="footer__dropdown-title row justify--between">
                         <p class="p--m">Careers</p>
-                        <span class="h--m">+</span>
+                        <div class="dropdown__toggler">
+                            <span class="dropdown__line dropdown__line--horizontal color-bg--<?php if (is_404() ) { $color = 'white'; } echo $color; ?>"></span>
+                            <span class="dropdown__line dropdown__line--vertical color-bg--<?php if (is_404() ) { $color = 'white'; } echo $color; ?>"></span>
+                        </div>
+                        
                     </label>
                     <div class="footer__dropdown-content">
                         <p class="p--s">Currently we don't have any open vacancies, but feel free to write us...</p>

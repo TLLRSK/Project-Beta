@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="<?php bloginfo( 'template_url' ); ?>/images/favicon/favicon.ico">
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -24,7 +25,7 @@ if (is_single ()) {
 
     <nav class="nav">
         <div class="topbar js-topbar color--<?php echo $color; ?> color-border--<?php echo $color; ?> color-bg--<?php echo $bgcolor; ?>">
-            <div class="topbar__menu-btn">
+            <div class="topbar__menu-btn flex--1">
                 <input type="checkbox" class="topbar__menu-toggler js-topbar__menu-toggler" id="topbar__menu-toggler">
                 <label for="topbar__menu-toggler" class="btn--topbar-menu">
                   <span class="burger burger--top color-bg--<?php echo $color; ?>"></span>
@@ -38,7 +39,7 @@ if (is_single ()) {
   
             <?php get_template_part( 'nav-links' ); ?>
     
-            <div class="topbar__tools">
+            <div class="topbar__tools flex--1">
                 <div class="topbar__tool-btn btn--tool btn--search">
                     <img class="img--icon color-icon--<?php echo $color; ?>" src="<?php bloginfo ( 'template_url' ); ?>/images/icons/search.svg" alt="">
                 </div>

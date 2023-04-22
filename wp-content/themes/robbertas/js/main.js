@@ -22,4 +22,3 @@ const handleMenu = () => {
 
 //opening menu
 menuBtn.addEventListener('click', handleMenu);
-
